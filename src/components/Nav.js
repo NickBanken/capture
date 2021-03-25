@@ -3,17 +3,9 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useLocation } from "react-router-dom";
-import { useResize } from "../components/useResize";
 
 const Nav = () => {
   const { pathname } = useLocation();
-  const { windowWidth, windowHeight } = useResize;
-  console.log(windowWidth);
-  const lineWidth = window.innerWidth < 1300 ? "10%" : "100%";
-  let handler = () => {
-    console.log("low");
-  };
-  let matcher = window.matchMedia("(max-width: 100px)");
 
   return (
     <StyledNav>
@@ -28,7 +20,7 @@ const Nav = () => {
           <Line
             transition={{ duration: 0.75 }}
             initial={{ width: "0%" }}
-            animate={{ width: pathname === "/" ? lineWidth : "0%" }}
+            animate={{ width: pathname === "/" ? "80%" : "0%" }}
           />
         </li>
         <li>
@@ -36,7 +28,7 @@ const Nav = () => {
           <Line
             transition={{ duration: 0.75 }}
             initial={{ width: "0%" }}
-            animate={{ width: pathname === "/work" ? lineWidth : "0%" }}
+            animate={{ width: pathname === "/work" ? "80%" : "0%" }}
           />
         </li>
         <li>
@@ -44,7 +36,7 @@ const Nav = () => {
           <Line
             transition={{ duration: 0.75 }}
             initial={{ width: "0%" }}
-            animate={{ width: pathname === "/contact" ? lineWidth : "0%" }}
+            animate={{ width: pathname === "/contact" ? "80%" : "0%" }}
           />
         </li>
       </ul>
